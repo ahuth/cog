@@ -1,0 +1,17 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "arrow-body-style": "off",
+    "import/extensions": ["error", "ignorePackages"],
+    "no-prototype-builtins": "off",
+    "no-use-before-define": "off",
+    "object-curly-newline": "off",
+    "prefer-destructuring": "off",
+    "react/destructuring-assignment": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/prop-types": "off"
+  }
+}
