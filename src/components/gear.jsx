@@ -21,7 +21,7 @@ export default function Gear({
     <svg height={size} width={size} viewBox={viewBox}>
       <path
         d={getTeethPath(r1, angle, center, teeth)}
-        fill="transparent"
+        fill={fill}
         stroke="black"
       />
     </svg>
