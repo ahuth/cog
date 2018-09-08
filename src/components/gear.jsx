@@ -14,13 +14,13 @@ export default function Gear({
   const r1 = diameter1 * size / 2;
   const r2 = diameter2 * size / 2;
   const r3 = diameter3 * size / 2;
-  const angle = 360 / teeth;
+  const angleBetween = 360 / teeth;
   const viewBox = `0 0 ${size} ${size}`;
 
   return (
     <svg height={size} width={size} viewBox={viewBox}>
       <path
-        d={getTeethPath(r1, angle, center, teeth)}
+        d={getTeethPath(r1, angleBetween, center, teeth)}
         fill={fill}
         stroke="black"
       />
