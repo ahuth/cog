@@ -34,6 +34,7 @@ export default class App extends React.Component {
           splay={this.state.splay}
           teeth={this.state.teeth}
         />
+        <span>Based off of Jxnblk&#39;s <a href="http://jxnblk.com/react-icons/">react-icons tutorial</a></span>
       </main>
     );
   }
