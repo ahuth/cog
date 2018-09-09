@@ -14,23 +14,26 @@ export default function getTeethPath(r1, r2, angleBetween, center, numTeeth) {
     const angleRight = angle + toothAngle;
     const angleNext = angle + angleBetween - toothAngle;
 
-    const tooth = getToothCoordinate(angle, toothWidth);
+    const toothCornerOffset = getToothCornerOffset(angle, toothWidth);
     const tip = toCoordinates(r1, angle, center);
-    const right = toCoordinates(r2, angleRight, center);
-    const next = toCoordinates(r2, angleNext, center);
+
+    const topLeft = { x: tip.x + toothCornerOffset.x, y: tip.y - toothCornerOffset.y };
+    const topRight = { x: tip.x - toothCornerOffset.x, y: tip.y + toothCornerOffset.y };
+    const bottomRight = toCoordinates(r2, angleRight, center);
+    const nextBottomLeft = toCoordinates(r2, angleNext, center);
 
     commands.push(
-      `${i === 0 ? 'M' : 'L'} ${tip.x + tooth.x} ${tip.y - tooth.y}`,
-      `L ${tip.x - tooth.x} ${tip.y + tooth.y}`,
-      `L ${right.x} ${right.y}`,
-      `A ${r2} ${r2} 0 0 1 ${next.x} ${next.y}`,
+      `${i === 0 ? 'M' : 'L'} ${topLeft.x} ${topLeft.y}`,
+      `L ${topRight.x} ${topRight.y}`,
+      `L ${bottomRight.x} ${bottomRight.y}`,
+      `A ${r2} ${r2} 0 0 1 ${nextBottomLeft.x} ${nextBottomLeft.y}`,
     );
   }
 
   return commands.join(' ');
 }
 
-function getToothCoordinate(angle, width) {
+function getToothCornerOffset(angle, width) {
   return {
     x: Math.sin(toRadians(angle)) * width,
     y: Math.cos(toRadians(angle)) * width,
