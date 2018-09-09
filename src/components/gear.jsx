@@ -1,4 +1,5 @@
 import React from 'react';
+import getHolePath from '../utils/get-hole-path.js';
 import getTeethPath from '../utils/get-teeth-path.js';
 
 export default function Gear({
@@ -16,11 +17,15 @@ export default function Gear({
   const r3 = diameter3 * size / 2;
   const angleBetween = 360 / teeth;
   const viewBox = `0 0 ${size} ${size}`;
+  const pathData = [
+    getTeethPath(r1, r2, angleBetween, center, teeth, splay),
+    getHolePath(center, r3),
+  ].join(' ');
 
   return (
     <svg height={size} width={size} viewBox={viewBox}>
       <path
-        d={getTeethPath(r1, r2, angleBetween, center, teeth, splay)}
+        d={pathData}
         fill={fill}
         stroke="black"
       />
