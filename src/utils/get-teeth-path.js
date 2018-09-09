@@ -3,16 +3,17 @@ import toRadians from './to-radians';
 
 const offset = 90;
 
-export default function getTeethPath(r1, r2, angleBetween, center, numTeeth) {
+export default function getTeethPath(r1, r2, angleBetween, center, numTeeth, splay) {
   const commands = [];
 
   const toothAngle = angleBetween / 4;
-  const toothWidth = Math.tan(toRadians(toothAngle)) * r1;
+  const adjustedSplay = splay * toothAngle;
+  const toothWidth = Math.tan(toRadians(toothAngle - adjustedSplay)) * r1;
 
   for (let i = 0; i < numTeeth; i += 1) {
     const angle = angleBetween * i - offset;
-    const angleRight = angle + toothAngle;
-    const angleNext = angle + angleBetween - toothAngle;
+    const angleRight = angle + toothAngle + adjustedSplay;
+    const angleNext = angle + angleBetween - toothAngle - adjustedSplay;
 
     const toothCornerOffset = getToothCornerOffset(angle, toothWidth);
     const tip = toCoordinates(r1, angle, center);
