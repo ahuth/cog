@@ -1,4 +1,5 @@
 import React from 'react';
+import Controls from './controls.jsx';
 import Gear from './gear.jsx';
 
 export default class App extends React.Component {
@@ -12,10 +13,18 @@ export default class App extends React.Component {
     fill: 'currentColor',
   }
 
+  handleTeethChange = (event) => {
+    this.setState({ teeth: event.target.value });
+  }
+
   render() {
     return (
       <main>
         <Gear {...this.state} />
+        <Controls
+          onTeethChange={this.handleTeethChange}
+          teeth={this.state.teeth}
+        />
       </main>
     );
   }

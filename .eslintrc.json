@@ -7,6 +7,11 @@
   "rules": {
     "arrow-body-style": "off",
     "import/extensions": ["error", "ignorePackages"],
+    "jsx-a11y/label-has-for": ["error", {
+      "required": {
+        "some": ["nesting", "id"]
+      }
+    }],
     "no-prototype-builtins": "off",
     "no-use-before-define": "off",
     "object-curly-newline": "off",
