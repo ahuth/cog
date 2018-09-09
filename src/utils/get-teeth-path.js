@@ -1,5 +1,5 @@
 import toCoordinates from './to-coordinates.js';
-import toRadians from './to-radians';
+import toRadians from './to-radians.js';
 
 const offset = 90;
 
