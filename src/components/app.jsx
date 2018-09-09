@@ -29,7 +29,9 @@ export default class App extends React.Component {
           diameter3={this.state.diameter3}
           onDiameter2Change={this.handleParameterChange.bind(this, 'diameter2')}
           onDiameter3Change={this.handleParameterChange.bind(this, 'diameter3')}
+          onSplayChange={this.handleParameterChange.bind(this, 'splay')}
           onTeethChange={this.handleParameterChange.bind(this, 'teeth')}
+          splay={this.state.splay}
           teeth={this.state.teeth}
         />
       </main>

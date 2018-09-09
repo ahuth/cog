@@ -5,7 +5,9 @@ export default function Controls({
   diameter3,
   onDiameter2Change,
   onDiameter3Change,
+  onSplayChange,
   onTeethChange,
+  splay,
   teeth,
 }) {
   return (
@@ -21,6 +23,10 @@ export default function Controls({
       <div>
         <label htmlFor="d3" style={styles.label}>Diameter 3 ({diameter3})</label>
         <input id="d3" onChange={onDiameter3Change} min="0" max="0.75" step="0.03125" type="range" value={diameter3} />
+      </div>
+      <div>
+        <label htmlFor="splay" style={styles.label}>Splay ({splay})</label>
+        <input id="splay" onChange={onSplayChange} min="0" max="1" step="0.03125" type="range" value={splay} />
       </div>
     </fieldset>
   );
