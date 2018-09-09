@@ -11,7 +11,7 @@ export default function Controls({
   teeth,
 }) {
   return (
-    <fieldset>
+    <fieldset style={styles.container}>
       <div>
         <label htmlFor="teeth" style={styles.label}>Teeth ({teeth})</label>
         <input id="teeth" onChange={onTeethChange} min="3" max="24" type="range" value={teeth} />
@@ -33,6 +33,9 @@ export default function Controls({
 }
 
 const styles = {
+  container: {
+    border: 0,
+  },
   label: {
     display: 'block',
   },
