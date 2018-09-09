@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 import React from 'react';
 import Controls from './controls.jsx';
 import Gear from './gear.jsx';
@@ -13,8 +14,10 @@ export default class App extends React.Component {
     fill: 'currentColor',
   }
 
-  handleTeethChange = (event) => {
-    this.setState({ teeth: event.target.value });
+  handleParameterChange(name, event) {
+    this.setState({
+      [name]: event.target.value,
+    });
   }
 
   render() {
@@ -22,7 +25,11 @@ export default class App extends React.Component {
       <main>
         <Gear {...this.state} />
         <Controls
-          onTeethChange={this.handleTeethChange}
+          diameter2={this.state.diameter2}
+          diameter3={this.state.diameter3}
+          onDiameter2Change={this.handleParameterChange.bind(this, 'diameter2')}
+          onDiameter3Change={this.handleParameterChange.bind(this, 'diameter3')}
+          onTeethChange={this.handleParameterChange.bind(this, 'teeth')}
           teeth={this.state.teeth}
         />
       </main>
